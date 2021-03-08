@@ -72,12 +72,6 @@
         foreach($array_data as $item){
         for($r1=$t1;$r1<=$t2;$r1++){
             for($c1=$d1;$c1<=$d2;$c1++){
-            // $c1=$d1;
-            // $r1=array_splice($t1,0,2);
-            // while($c1<=$d2){
-            //     while($r1<=$t2){
-                    // $i=$item['sDate'];
-                    // $j=$item['sTime'];
                     for($i=$item['sDate'];$i<=$item['eDate'];$i++){
                         for($j=$item['sTime'];$j<=$item['eTime'];$j++){
                             // echo 'jsondate'.$i.'-'.'jsontime'.$j.'-inputdate'.$c1.'-inputtime'.$r1.'-check'.$check.'<br/>';
@@ -86,43 +80,7 @@
                             }
                         }
                     }
-                    // while($i<=$item['eDate']){
-                    //     while($j<=$item['eTime']){
-                    //         echo 'jsondate'.$i.'-'.'jsontime'.$j.'-inputdate'.$c1.'-inputtime'.$r1.'-check'.$check.'<br/>';
-                    //         if($i==$c1 && $j==$r1){
-                    //             $check=$check+1;
-                    //         }
-                    //         $j=$j+1;
-                    //     }$i=$i+1;
-                    // }
-
-                    // for($i=$item['sDate'];$i<=$item['eDate'];$i++){
-                    //     for($j=$item['sTime'];$j<=$item['eTime'];$j++){
-                            // if($i==$c1 && $j==$r1){
-                            //     $check=$check+1;
-                            //     break;
-                            // }
-                    //     }
-                    // }               
-                    // if($item['sDate']==$c1 && $item['eDate']==$c1 && $item['sTime']==$r1 && $item['eTime']==$r1){
-                    //     $check=$check+1;
-                    //     break;
-                    // }
-                    // $r1=$r1+1;
-                    // if($item['eDate']==$c1){
-                    //     $check=$check+1;
-                    //     break;
-                    // }
-                    // if($item['sTime']==$r1){
-                    //     $check=$check+1;
-                    //     break;
-                    // }
-                    // if($item['eTime']==$r1){
-                    //     $check=$check+1;
-                    //     break;
-                    // }
                 }
-                // $c1=$c1+1;
             }
         }
 
@@ -138,7 +96,6 @@
             $array_data[]=$extra; 
             file_put_contents("$file_name", json_encode($array_data));
             echo "data added successfully <br/>"; 
-            // return json_encode($array_data );
         }
         else{
             echo 'Slot is Full ';
@@ -150,30 +107,12 @@
     } 
     else {
         if($d1 != null && $d2 != null && $t1 != null && $t2 != null && $conten != null){
-        // $datae=array(); 
-        // $datae[]=array( 
-        //     'sDate'=>$d1,
-        //     'eDate'=>$d2,
-        //     'sTime'=>$t1,
-        //     'eTime'=>$t2,
-        //     'bookf'=>$conten
-        // );   
-        echo "file not selected properly<br/>"; 
-        // return json_encode($datae);
+            echo "file not selected properly<br/>"; 
         } 
         else{
             echo 'add data properly';  
         }
     } 
-    
-    // $file_name='data'. '.json'; 
-      
-    // if(file_put_contents("$file_name", get_data())) { 
-    //     echo 'O Yaah Successfully data stored'; 
-    // }                 
-    // else { 
-    //     echo 'There is some error rahul bhai se data add karna sikho';                 
-    // }
 ?>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <input type="date" min="1999-07-01" max="1999-07-31" id="sdate" name="sdate" placeholder="Start Date">&nbsp;&nbsp;<?php echo "<font color='red'> $sdateErr </font>" ?>
@@ -192,18 +131,6 @@
                 <tr>
                 <?php
                 for ($row = 0; $row <= 31; $row++) {
-                    // if(strlen($col) < 2 && strlen($row) < 2){
-                    //     $id = '0'.$col.'-'.'0'.$row;
-                    // }
-                    // elseif(strlen($col) > 1 && strlen($row) < 2){
-                    //     $id = $col.'-'.'0'.$row;
-                    // }
-                    // elseif(strlen($col) <2 && strlen($row) > 1){
-                    //     $id = '0'.$col.'-'.$row;
-                    // }
-                    // else{
-                    //     $id = $col.'-'.$row;
-                    // }
                     $id = $col.'-'.$row;
                     if ($row < 1) {
                         if ($col > 0) {
@@ -236,10 +163,6 @@
             var n = obj.length
             var q=0;
             for (let index = 0; index < n; index++) {
-                // console.log(obj[index])
-                
-            
-            // while(q<=n){
                 var d1 = parseInt(obj[index].sDate);
                 var d2 = parseInt(obj[index].eDate);
                 var t1 = parseInt(obj[index].sTime.slice(0,2));
@@ -247,8 +170,6 @@
                 var conten= obj[index].bookf;
                 let cs=(d2-d1)+1;
                 let rs=(t2-t1)+1;
-
-                // console.log(d1 , d2, t1 , t2 , conten)
                 var z= document.getElementById(t1+"-"+d1);
                 
                 z.innerHTML=conten;
@@ -260,9 +181,7 @@
                     var p = parseInt(t1)+1;
 
                     while(p<=t2){
-                        // console.log(p)
                         var l=document.getElementById(p+"-"+s);
-                        // console.log(l)
                         l.remove();
                         p=p+1;
                     }
